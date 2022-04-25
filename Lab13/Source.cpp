@@ -14,8 +14,8 @@ struct Stack
 
 void stackMalloc(Stack* s,int l)
 {
-	s->element = (int*)malloc(sizeof(int) * l);
-	s->len = l;
+	if (s->element = (int*)malloc(sizeof(int) * l))
+		s->len = l;
 }
 
 void stackPush(Stack* s, int data)
@@ -74,7 +74,6 @@ int main()
 {
 	Stack s;
 	stackMalloc(&s, 0);
-
 	writeANumber(&s);
 
 	stackPrint(&s);
