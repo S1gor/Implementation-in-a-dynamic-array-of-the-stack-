@@ -8,14 +8,19 @@
 struct Stack
 {
 	int* element = NULL;
-	int len = -1;
+	int len = 0;
 	int head = -1;
 };
 
 void stackMalloc(Stack* s,int l)
 {
-	if (s->element = (int*)malloc(sizeof(int) * l))
+	if (s->element == NULL)
+	{
+		s->element = (int*)malloc(sizeof(int) * l);
 		s->len = l;
+	}
+	else
+		printf("Stack is init");
 }
 
 void stackPush(Stack* s, int data)
@@ -24,6 +29,13 @@ void stackPush(Stack* s, int data)
 	if (s->head >= s->len)
 		s->element = (int*)realloc(s->element, sizeof(int) * (s->head + 1));
 	s->element[s->head] = data;
+}
+
+int popStack(Stack* s)
+{
+	if (s->head >= 0)
+		return s->element[s->head--];
+	else return NULL;
 }
 
 void writeANumber(Stack* s)
@@ -66,9 +78,11 @@ void stackDestroy(Stack* s)
 {
 	if (s->element)
 		free(s->element);
-	s->len = -1;
+	s->element == NULL;
+	s->len = 0;
 	s->head = -1;
 }
+
 
 int main()
 {
