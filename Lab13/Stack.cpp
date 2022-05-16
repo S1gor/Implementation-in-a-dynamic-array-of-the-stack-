@@ -1,18 +1,6 @@
-#include<iostream>
+#include"Stack.h"
 
-/*Задание:
-Ввести некоторое число и записать его цифры в стек.Вывести число, у которого цифры идут в обратном порядке.
-Цифры из записи числа считывать поочередно(например, с помощью getch()).
-Вычислить наименьшую и наибольшую цифры в записи числа.*/
-
-struct Stack
-{
-	int* element = NULL;
-	int len = 0;
-	int head = -1;
-};
-
-void stackMalloc(Stack* s,int l)
+void stackInit(Stack* s, int l)
 {
 	if (s->element == NULL)
 	{
@@ -48,12 +36,12 @@ void writeANumber(Stack* s)
 void stackPrint(Stack* s)
 {
 	printf("\nStack:\n");
-	for (int i = s->head; i >=0; i--)
+	for (int i = s->head; i >= 0; i--)
 	{
 		printf("[%d] -> %d", i + 1, s->element[i]);
 		printf("\n");
 	}
-	
+
 	printf("\nReverse - ");
 	for (int i = s->head; i >= 0; i--)
 		printf("%d", s->element[i]);
@@ -81,18 +69,4 @@ void stackDestroy(Stack* s)
 	s->element == NULL;
 	s->len = 0;
 	s->head = -1;
-}
-
-
-int main()
-{
-	Stack s;
-	stackMalloc(&s, 0);
-	writeANumber(&s);
-
-	stackPrint(&s);
-	stackNumberMinAndMax(&s);
-
-	stackDestroy(&s);
-	return 0;
 }
