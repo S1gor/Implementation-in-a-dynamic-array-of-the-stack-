@@ -31,7 +31,7 @@ void writeANumber(Stack* s)
 {
 	printf("Write a number:");
 	for (char symbol = getchar(); symbol != '\n'; symbol = getchar())
-		stackPush(s, symbol - 48);
+		stackPush(s, symbol - '0');
 }
 
 void stackPrint(Stack* s)
