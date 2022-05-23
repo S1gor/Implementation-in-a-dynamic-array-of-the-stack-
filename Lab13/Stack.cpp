@@ -1,4 +1,5 @@
 #include"Stack.h"
+#include<iostream>
 
 void stackInit(Stack* s, int l)
 {

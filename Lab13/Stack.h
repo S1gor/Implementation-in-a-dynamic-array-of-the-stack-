@@ -1,11 +1,9 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#include<iostream>
-
 struct Stack
 {
-	int* element = NULL;
+	int* element = 0;
 	int len = 0;
 	int head = -1;
 };
